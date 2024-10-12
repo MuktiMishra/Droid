@@ -10,6 +10,7 @@
   background: #ced8ff;
 }
 .container.dark{
-  background: #222;
+  background: #484747;
   transition: 0.5s;
+  color: #fff;
 }
