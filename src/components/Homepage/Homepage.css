@@ -1,0 +1,88 @@
+.heading1 {
+    font-family: Fantasy;
+    font-weight: 800;
+    font-size: 170px;
+    text-align: center;
+    color: #000000;
+    margin-top: 10px; /* Set a minimal space below the navbar */
+    opacity: 0; /* Initial state for animation */
+    transform: translateY(-50px); /* Move it up initially */
+    animation: fadeInUp 2.0s forwards; /* Apply the animation with longer duration */
+    transition: color 0.3s, transform 0.3s, opacity 0.3s; /* Smooth transition for multiple properties */
+}
+
+.heading1:hover {
+    color: #3c3837; /* Change color on hover */
+    transform: scale(1.05); /* Scale up slightly on hover */
+    opacity: 1; /* Fully opaque on hover */
+}
+
+.heading2 {
+    font-family: Monospace;
+    font-weight: 200;
+    font-size: 35px;
+    text-align: center;
+    color: #272424;
+    margin-top: 10px; /* Space between DROID and subtitle */
+    opacity: 0; /* Initial state for animation */
+    transform: translateY(50px); /* Move it down initially */
+    animation: fadeInUp 2.5s forwards 0.5s; /* Apply the animation with longer duration and delay */
+    transition: color 0.3s, transform 0.3s, opacity 0.3s; /* Smooth transition for hover effects */
+}
+
+.heading2:hover {
+    color: #312e2e; /* Change color on hover */
+    transform: scale(1.05); /* Scale up slightly on hover */
+    opacity: 1; /* Fully opaque on hover */
+}
+
+/* Ensure the entire container is flex and centered vertically */
+.relative {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: flex-start; /* Align items at the start to accommodate navbar */
+    height: 100vh; /* Full viewport height */
+    position: relative;
+    background-image: url('../../assets/dots-pattern.png'); /* Dotted background image */
+    background-size: cover; /* Ensure the dots cover the entire background */
+    background-position: center; /* Center the background image */
+    z-index: 1; /* Keep the background behind other elements */
+}
+
+img {
+    object-fit: cover; /* Ensure the image covers the entire area */
+    z-index: -1; /* Push the background image behind the content */
+}
+
+/* Keyframes for fade-in-up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0; /* Start transparent */
+        transform: translateY(20px); /* Start slightly down */
+    }
+    to {
+        opacity: 1; /* Fully opaque */
+        transform: translateY(0); /* End in original position */
+    }
+}
+
+/* Scroll effect on headings */
+@media (prefers-reduced-motion: no-preference) {
+    .heading1,
+    .heading2 {
+        will-change: transform, opacity; /* Hint for smooth scrolling */
+        animation: fadeInUp 1.5s forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0; /* Start transparent */
+            transform: translateY(50px); /* Start slightly down */
+        }
+        to {
+            opacity: 1; /* Fully opaque */
+            transform: translateY(0); /* End in original position */
+        }
+    }
+}

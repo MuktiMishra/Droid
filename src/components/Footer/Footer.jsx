@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import { FaInstagram, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import { FaInstagram, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import logo_light from '../../assets/Droid Black.png';
 import logo_dark from '../../assets/DROID white.png';
 
@@ -35,13 +35,13 @@ const Footer = ({ theme, setTheme }) => {
       <div className="footer-section social-media">
         <h3>Follow Us</h3>
         <div className="social-icons">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/droid_glau/profilecard/?igsh=MWZubzd5cHFod2Eydw==" target="_blank" rel="noopener noreferrer">
             <FaInstagram style={{ color: theme === "light" ? '#000' : '#fff' }} />
           </a>
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <FaFacebookF style={{ color: theme === "light" ? '#000' : '#fff' }} />
+            <FaGithub style={{ color: theme === "light" ? '#000' : '#fff' }} />
           </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/company/droid-glau/" target="_blank" rel="noopener noreferrer">
             <FaLinkedinIn style={{ color: theme === "light" ? '#000' : '#fff' }} />
           </a>
         </div>
