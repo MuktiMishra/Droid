@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 *{
   margin:0;
   padding:0;
@@ -7,7 +10,7 @@
 .container{
   width: 100vw;
   min-height: 100vh;
-  background: #ced8ff;
+  background: #fff;
 }
 .container.dark{
   background: #484747;

@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
     width: 100%;
     display: flex;
     align-items: center;
@@ -7,66 +7,95 @@
     padding: 15px 7%;
     transition: 0.5s;
 }
-.logo{
-    width : 60px;
+
+.logo {
+    width: 60px;
     cursor: pointer;
     margin-left: 2px;
 }
-div h2{
+
+div h2 {
     font-size: 40px;
     margin-left: 20px;
     font-weight: 800;
     font-family: sans-serif;
 }
-ul{
+
+ul {
     flex: 1;
     list-style: none;
     text-align: center;
+    display: flex;  /* Change to flex for better alignment */
+    justify-content: center;  /* Center the items */
+    margin: 0;  /* Remove default margin */
+    padding: 0;  /* Remove default padding */
 }
-ul li{
+
+ul li {
     display: inline-block;
     margin: 10px 20px;
     font-size: 18px;
     cursor: pointer;
+    position: relative;  /* Needed for the pseudo-element */
+    transition: color 0.3s ease;  /* Smooth color transition */
 }
-.toggle-icon{
-    width: 50px;
-    cursor: pointer;
-    margin-left: 40px;
+
+ul li::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;  /* Thickness of the underline */
+    background: #000;  /* Color of the underline */
+    position: absolute;
+    left: 0;
+    bottom: -5px;  /* Adjusts the position of the underline */
+    transition: width 0.3s ease;  /* Smooth transition */
 }
-.search-box{
+
+ul li:hover::after {
+    width: 100%;  /* Full width on hover */
+}
+
+ul li:hover {
+    color: #ff6347;  /* Change to a different color on hover */
+}
+
+.toggle-container {
     display: flex;
-    align-items: center;
-    background: #242424;
-    padding: 10px 20 px;
-    border-radius: 50px;
+    align-items: center;  /* Center the toggle icon vertically */
 }
-.search-box input{
-    padding: 6px;
-    background: transparent;
-    border: 0;
-    outline: 0;
-    color: #fff;
-    font-size: 18px;
-    max-width: 200px;
-}
-.search-box input::placeholder{
-    color: #fff;
-}
-.search-box img{
-    width: 20px;
+
+.toggle-icon {
+    width: 50px;
+    height: auto;  /* Ensures the icon maintains its aspect ratio */
     cursor: pointer;
+    margin-left: 20px;  /* Space between the toggle icon and other items */
+    z-index: 10;  /* Keeps the icon above other elements */
+    background-color: transparent;  /* No background, just the icon */
+    padding: 0;  /* Remove any padding */
+    border: none;  /* Remove any border */
+    box-shadow: none;  /* Remove any shadow */
+    transition: transform 0.3s ease;  /* Simple scale effect on hover */
 }
-.dark .navbar{
+
+.toggle-icon:hover {
+    transform: scale(1.1);  /* Slight enlargement on hover for interactivity */
+}
+
+/* Dark theme styles */
+.dark .navbar {
     background: #000;
     color: #fff;
 }
-.dark .search-box{
+
+.dark .search-box {
     background: #fff;
 }
-.dark .search-box input{
+
+.dark .search-box input {
     color: #222;
 }
-.dark .search-box input::placeholder{
+
+.dark .search-box input::placeholder {
     color: #222;
 }
