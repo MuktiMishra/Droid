@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './index.css'
 import Footer from './components/Footer/Footer.jsx';
 import Homepage from './components/Homepage/Homepage.jsx';
+import TeamSlider from './components/Team.jsx';
 
 function App() {
   const [theme, setTheme] = useState('light'); 
@@ -10,11 +11,12 @@ function App() {
 
   return (
     
-    <div className={`container ${theme}`}>
-      <Navbar theme={theme} setTheme={setTheme}/>
-      <Homepage />
-      <Footer theme={theme} setTheme={setTheme}/>
-    </div>
+    // <div className={`container ${theme}`}>
+    //   <Navbar theme={theme} setTheme={setTheme}/>
+    //   <Homepage />
+    //   <Footer theme={theme} setTheme={setTheme}/>
+    // </div>
+    <TeamSlider />
   )
 }
 
