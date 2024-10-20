@@ -5,6 +5,8 @@ import Footer from './components/Footer/Footer.jsx';
 import Homepage from './components/Homepage/Homepage.jsx';
 import TeamSlider from './components/Team.jsx';
 import EventSlider from './components/Events.jsx';
+import VideoSlider from './components/Projects.jsx';
+import ProjectSlider from './components/Projects.jsx';
 
 function App() {
   const [theme, setTheme] = useState('light'); 
@@ -18,7 +20,8 @@ function App() {
     //   <Footer theme={theme} setTheme={setTheme}/>
     // </div>
     // <TeamSlider />
-    <EventSlider />
+    // <EventSlider />
+    <ProjectSlider />
   )
 }
 
