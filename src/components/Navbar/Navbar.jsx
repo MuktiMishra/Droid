@@ -1,9 +1,9 @@
+// Navbar.js
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import './Navbar.css';
 import logo_light from '../../assets/Droid Black.png';
 import logo_dark from '../../assets/DROID white.png';
-import search_icon_light from '../../assets/search-w.png';
-import search_icon_dark from '../../assets/search-b.png';
 import toggle_light from '../../assets/night.png';
 import toggle_dark from '../../assets/day.png';
 
@@ -13,30 +13,25 @@ const Navbar = ({ theme, setTheme }) => {
   };
 
   return (
-    <div className='navbar'>
+    <div className={`navbar ${theme}`}>
       {/* Left side: Home, About Us */}
       <ul className='nav-links-left'>
-        <li>Home</li>
-        <li>Team</li>
-        <li>About Us</li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/team">Team</Link></li>
+        <li><Link to="/about">About Us</Link></li>
       </ul>
 
       {/* Center: Logo */}
       <div className='logo-container'>
-        <img src={theme === 'light' ? logo_light : logo_dark} alt='Droid Logo' className='logo' />
+        <img src={logo_light} alt='Droid Logo' className='logo' />
       </div>
 
       {/* Right side: Events, Projects, Contact Us, Theme Toggle */}
       <ul className='nav-links-right'>
-        <li>Events</li>
-        <li>Projects</li>
-        <li>Contact Us</li>
-        <img
-          src={theme === 'light' ? toggle_light : toggle_dark}
-          alt='toggle theme'
-          className='toggle-icon'
-          onClick={toggleTheme}
-        />
+        <li><Link to="/events">Events</Link></li>
+        <li><Link to="/projects">Projects</Link></li>
+        <li><Link to="/contact">Contact Us</Link></li>
+        
       </ul>
     </div>
   );
