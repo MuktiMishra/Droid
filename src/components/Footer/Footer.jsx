@@ -6,7 +6,7 @@ import logo_dark from '../../assets/DROID white.png';
 
 const Footer = ({ theme, setTheme }) => {
   return (
-    <footer className="footer">
+    <footer className={`footer ${theme}`}>
       <div className="footer-section logo">
         <img src={theme === "light" ? logo_light : logo_dark} alt="Club Logo" />
       </div>

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'tailwindcss/tailwind.css';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'; // Chevron icons
+import { PuffLoader } from 'react-spinners'; // Loading spinner (you can use any other spinner)
 
 const events = [
   {
@@ -24,27 +26,49 @@ const events = [
 
 const EventSlider = () => {
   const [current, setCurrent] = useState(0);
+  const [loading, setLoading] = useState(true); // Loading state
   const length = events.length;
 
+  // Handles next and previous slide
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
+    setLoading(true); // Set loading true when changing slide
   };
 
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
+    setLoading(true); // Set loading true when changing slide
+  };
+
+  // Function to handle image load
+  const handleImageLoad = () => {
+    setLoading(false); // Image is loaded
   };
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
+      {/* Loading Spinner */}
+      {loading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
+          <PuffLoader color="#ffffff" size={60} />
+        </div>
+      )}
+
       {events.map((event, index) => (
         <div
           key={event.id}
           className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
             index === current ? 'opacity-100' : 'opacity-0'
           }`}
-          style={{ backgroundImage: `url(${event.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
-          <div className="flex items-center justify-center h-full bg-black bg-opacity-50">
+          <img
+            src={event.image}
+            alt={event.name}
+            className="object-cover w-full h-full"
+            onLoad={handleImageLoad} // Call this when image is loaded
+            style={{ display: loading ? 'none' : 'block' }} // Hide the image until it's fully loaded
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="text-center text-white p-8">
               <h1 className="text-4xl font-bold mb-4">{event.name}</h1>
               <p className="text-lg">{event.description}</p>
@@ -52,17 +76,19 @@ const EventSlider = () => {
           </div>
         </div>
       ))}
+
+      {/* Navigation buttons */}
       <button
         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-transparent text-white p-2 rounded-full focus:outline-none"
         onClick={prevSlide}
       >
-        <i className="fas fa-chevron-left text-2xl" />
+        <FaChevronLeft size={24} />
       </button>
       <button
         className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-transparent text-white p-2 rounded-full focus:outline-none"
         onClick={nextSlide}
       >
-        <i className="fas fa-chevron-right text-2xl" />
+        <FaChevronRight size={24} />
       </button>
     </div>
   );

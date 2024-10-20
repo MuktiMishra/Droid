@@ -1,3 +1,5 @@
+/* Navbar.css */
+
 .navbar {
     width: 100%;
     display: flex;
@@ -6,6 +8,9 @@
     background: #fff;
     padding: 15px 7%;
     transition: 0.5s;
+    position: sticky; /* Make the navbar sticky */
+    top: 0; /* Stick to the top */
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
 .logo {
@@ -38,6 +43,11 @@ ul li {
     cursor: pointer;
     position: relative;  /* Needed for the pseudo-element */
     transition: color 0.3s ease;  /* Smooth color transition */
+}
+
+ul li a {
+    text-decoration: none; /* Remove default underline */
+    color: inherit; /* Inherit color from parent */
 }
 
 ul li::after {
